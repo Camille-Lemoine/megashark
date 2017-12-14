@@ -40,6 +40,13 @@ class RoomsController extends AppController
 
         $this->set('room', $room);
         $this->set('_serialize', ['room']);
+        
+        $showtimes=$this->Rooms->Showtimes
+             ->find()
+             ->where(['room_id' => $id]);
+             
+        $this->set('showtimes', $showtimes);
+        $this->set('_serialize', ['showtimes']);
     }
 
     /**
